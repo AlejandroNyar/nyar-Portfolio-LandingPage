@@ -1,26 +1,130 @@
 @import "tailwindcss";
 
+/* Class-based dark mode for next-themes */
+@variant dark (&:is(.dark *));
+
+/* ─── Semantic tokens — light mode defaults ──────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:              #F8FAFC;
+  --surface:         #EEF2F8;
+  --border:          #94A3B8;
+  --accent:          #6366F1;
+  --accent-hover:    #4F46E5;
+  --highlight:       #0891B2;
+  --fg:              #0F172A;
+  --fg-secondary:    #334155;
+  --fg-muted:        #64748B;
+  --available:       #059669;
+  --dot-color:       rgba(15, 23, 42, 0.07);
+  --process-track:   rgba(15, 23, 42, 0.18);
+  --process-glow:    rgba(99, 102, 241, 0.35);
 }
 
+/* ─── Dark mode overrides ────────────────────────────────────── */
+.dark {
+  --bg:              #0A0A0F;
+  --surface:         #111118;
+  --border:          #1E1E2E;
+  --accent:          #6366F1;
+  --accent-hover:    #4F46E5;
+  --highlight:       #22D3EE;
+  --fg:              #F1F5F9;
+  --fg-secondary:    #94A3B8;
+  --fg-muted:        #475569;
+  --available:       #34D399;
+  --dot-color:       rgba(255, 255, 255, 0.04);
+  --process-track:   #1E1E2E;
+  --process-glow:    rgba(99, 102, 241, 0.5);
+}
+
+/* ─── Tailwind theme tokens (reference CSS vars at runtime) ──── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg:            var(--bg);
+  --color-surface:       var(--surface);
+  --color-border:        var(--border);
+  --color-accent:        var(--accent);
+  --color-accent-hover:  var(--accent-hover);
+  --color-highlight:     var(--highlight);
+  --color-fg:            var(--fg);
+  --color-fg-secondary:  var(--fg-secondary);
+  --color-fg-muted:      var(--fg-muted);
+  --color-available:     var(--available);
+
+  --font-display:  var(--font-geist-sans);
+  --font-body:     var(--font-geist-sans);
+  --font-mono:     var(--font-geist-mono);
+
+  --animate-ping-slow: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Keyframes ──────────────────────────────────────────────── */
+@keyframes ping-slow {
+  0%       { transform: scale(1); opacity: 1; }
+  75%, 100%{ transform: scale(2); opacity: 0; }
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ─── Utilities ──────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #6366F1 0%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.glow-orb {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 12px;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(34,211,238,0.1), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Focus / selection ──────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+::selection {
+  background: rgba(99, 102, 241, 0.25);
+  color: var(--fg);
 }
