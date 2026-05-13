@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nyar — Freelance Frontend Developer Portfolio
+
+Personal portfolio built to attract freelance clients (SMBs) and showcase frontend skills to larger companies.
+
+**Live:** [nyar.dev](https://nyar.dev) *(coming soon — deploying to Vercel)*
+
+---
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router, Turbopack) |
+| UI | React 19, Tailwind CSS v4 |
+| Animations | Framer Motion v12 |
+| i18n | Custom React context — EN / ES / DE |
+| Theming | next-themes — dark / light / system |
+| Forms | React Hook Form + Zod + Formspree |
+| Language | TypeScript strict |
+| Deploy | Vercel |
+
+## Features
+
+- 10 sections: Hero, Services, Tech Stack, Projects, Process, About, Testimonials, Contact, Navigation, Footer
+- Scroll-driven animations (word carousel, vertical process line, section reveals)
+- Cursor spotlight effect on service cards
+- Language switcher with localStorage persistence
+- Dark / light / system theme toggle
+- Placeholder NDA project cards (ready to swap for real work)
+- SEO: metadata, JSON-LD (Person + WebSite + ProfessionalService), sitemap, robots.txt
+- Mobile-first responsive layout
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/              # Next.js App Router (layout, page, sitemap, robots)
+├── components/
+│   ├── layout/       # Navigation, Footer, Providers
+│   ├── sections/     # One component per page section
+│   ├── ui/           # Design system primitives
+│   ├── projects/     # Project card + placeholder
+│   └── contact/      # Form components
+├── context/          # LocaleContext (i18n)
+├── data/             # Content data (projects, services, skills…)
+├── hooks/            # useScrollProgress, useActiveSection, useCursorPosition
+├── i18n/             # Translation files (en, es, de)
+├── lib/              # utils, constants
+└── types/            # TypeScript interfaces
+```
 
-## Learn More
+## Configuration
 
-To learn more about Next.js, take a look at the following resources:
+Before deploying, update these files:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| File | What to change |
+|---|---|
+| `src/lib/constants.ts` | Real GitHub, LinkedIn URLs |
+| `src/data/personal.ts` | Bio, location, availability |
+| `src/components/contact/ContactForm.tsx` | Replace `YOUR_FORM_ID` with Formspree ID |
+| `src/app/layout.tsx` | Update `SITE_URL` once domain is live |
+| `public/cv.pdf` | Add your actual CV |
+| `public/avatar.jpg` | Add your photo |
+| `public/og-image.png` | Add OG image (1200×630px) |
