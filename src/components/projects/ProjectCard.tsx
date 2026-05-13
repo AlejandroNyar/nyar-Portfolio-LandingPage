@@ -20,7 +20,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
-      className="group relative rounded-xl border border-border bg-surface/40 overflow-hidden hover:border-accent/30 transition-colors duration-300"
+      className="group relative rounded-xl border border-border bg-surface/40 overflow-hidden hover:border-accent/30 transition-colors duration-300 h-full flex flex-col"
     >
       {/* Image */}
       <div className="relative h-44 overflow-hidden bg-surface">
@@ -67,14 +67,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-2 mb-2">
           <h3 className="font-semibold text-fg">{project.title}</h3>
           <span className="text-xs text-fg-muted shrink-0 mt-0.5">
             {categoryLabels[project.category]}
           </span>
         </div>
-        <p className="text-sm text-fg-secondary leading-relaxed mb-4">
+        <p className="text-sm text-fg-secondary leading-relaxed mb-4 flex-1">
           {project.description}
         </p>
         <div className="flex flex-wrap gap-1.5 mb-3">

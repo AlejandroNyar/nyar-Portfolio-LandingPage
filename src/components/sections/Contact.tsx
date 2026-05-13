@@ -18,7 +18,7 @@ export function Contact() {
 
   return (
     <AnimatedSection id="contact" className="py-16 md:py-24 max-w-6xl mx-auto px-6">
-      <div className="grid lg:grid-cols-5 gap-16">
+      <div className="grid lg:grid-cols-5 gap-16 lg:items-center">
         <AnimatedDiv className="lg:col-span-2 space-y-8">
           <div>
             <p className="text-accent text-sm font-semibold tracking-widest uppercase mb-3">

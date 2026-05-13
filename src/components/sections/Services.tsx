@@ -32,10 +32,10 @@ function ServiceCard({
   const item = t.services.items[serviceKey]
 
   return (
-    <AnimatedDiv delay={index * 0.1}>
+    <AnimatedDiv delay={index * 0.1} className="h-full">
       <div
         className={cn(
-          'relative group p-6 rounded-xl border border-border bg-surface/40',
+          'relative group p-6 rounded-xl border border-border bg-surface/40 h-full flex flex-col',
           'hover:border-accent/40 transition-all duration-300 overflow-hidden cursor-default',
         )}
         onMouseMove={onMouseMove}
@@ -47,12 +47,12 @@ function ServiceCard({
               'radial-gradient(250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99,102,241,0.07), transparent 80%)',
           }}
         />
-        <div className="relative z-10">
-          <div className="w-11 h-11 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors">
+        <div className="relative z-10 flex flex-col h-full">
+          <div className="w-11 h-11 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/15 transition-colors shrink-0">
             <Icon size={20} className="text-accent" />
           </div>
-          <h3 className="text-lg font-semibold text-fg mb-2">{item.title}</h3>
-          <p className="text-sm text-fg-secondary leading-relaxed mb-4">{item.description}</p>
+          <h3 className="text-lg font-semibold text-fg mb-2 min-h-[3.5rem] leading-snug">{item.title}</h3>
+          <p className="text-sm text-fg-secondary leading-relaxed mb-4 flex-1">{item.description}</p>
           <ul className="space-y-1">
             {item.highlights.map((h) => (
               <li key={h} className="flex items-center gap-2 text-xs text-fg-muted">

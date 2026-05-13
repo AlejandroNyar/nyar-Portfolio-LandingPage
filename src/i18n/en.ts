@@ -84,7 +84,7 @@ export const en: Translations = {
       "I work with small and medium businesses to build web applications that make a real difference — a landing page that brings in clients, a dashboard that saves your team time, or an e-commerce store built for growth.",
       "Clean code, honest communication, and real results. That's how I work.",
     ],
-    facts: { location: 'Spain', timezone: 'CET (UTC+1)', languages: 'Spanish (native) · English (professional)', response: '< 24h' },
+    facts: { location: 'Spain', timezone: 'CET (UTC+1)', languages: 'Spanish · English · German', response: '< 24h' },
     labels: { location: 'Location', timezone: 'Timezone', languages: 'Languages', response: 'Response time' },
     downloadCv: 'Download CV',
     workWithMe: 'Work with me',

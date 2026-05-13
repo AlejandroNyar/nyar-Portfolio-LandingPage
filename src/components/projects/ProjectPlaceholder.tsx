@@ -28,9 +28,9 @@ export function ProjectPlaceholder({ project }: ProjectPlaceholderProps) {
   const Icon = status.icon
 
   return (
-    <div className="group relative rounded-xl border border-border bg-surface/40 overflow-hidden hover:border-accent/30 transition-all duration-300">
+    <div className="group relative rounded-xl border border-border bg-surface/40 overflow-hidden hover:border-accent/30 transition-all duration-300 h-full flex flex-col">
       {/* Image area */}
-      <div className="relative h-44 bg-gradient-to-br from-surface to-bg flex items-center justify-center border-b border-border overflow-hidden">
+      <div className="relative h-44 bg-gradient-to-br from-surface to-bg flex items-center justify-center border-b border-border overflow-hidden shrink-0">
         <div className="absolute inset-0 dot-grid opacity-20" />
         <div className="relative flex flex-col items-center gap-3 text-fg-muted">
           <div className="w-12 h-12 rounded-xl bg-surface border border-border flex items-center justify-center">
@@ -41,14 +41,14 @@ export function ProjectPlaceholder({ project }: ProjectPlaceholderProps) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-2 mb-2">
           <h3 className="font-semibold text-fg">{project.title}</h3>
           <span className="text-xs text-fg-muted shrink-0 mt-0.5">
             {categoryLabels[project.category]}
           </span>
         </div>
-        <p className="text-sm text-fg-secondary leading-relaxed mb-4">
+        <p className="text-sm text-fg-secondary leading-relaxed mb-4 flex-1">
           {project.description}
         </p>
         <div className="flex flex-wrap gap-1.5">

@@ -84,7 +84,7 @@ export const es: Translations = {
       'Trabajo con pequeñas y medianas empresas para crear aplicaciones web que realmente marcan la diferencia — una landing que atrae clientes, un dashboard que ahorra tiempo o una tienda online preparada para crecer.',
       'Código limpio, comunicación honesta y resultados reales. Así es como trabajo.',
     ],
-    facts: { location: 'España', timezone: 'CET (UTC+1)', languages: 'Español (nativo) · Inglés (profesional)', response: '< 24h' },
+    facts: { location: 'España', timezone: 'CET (UTC+1)', languages: 'Español · Inglés · Alemán', response: '< 24h' },
     labels: { location: 'Ubicación', timezone: 'Zona horaria', languages: 'Idiomas', response: 'Tiempo de respuesta' },
     downloadCv: 'Descargar CV',
     workWithMe: 'Trabajar conmigo',

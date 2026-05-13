@@ -84,7 +84,7 @@ export const de: Translations = {
       'Ich arbeite mit kleinen und mittleren Unternehmen zusammen, um Webanwendungen zu entwickeln, die wirklich einen Unterschied machen.',
       'Sauberer Code, ehrliche Kommunikation und echte Ergebnisse. So arbeite ich.',
     ],
-    facts: { location: 'Spanien', timezone: 'CET (UTC+1)', languages: 'Spanisch (Muttersprache) · Englisch (professionell)', response: '< 24h' },
+    facts: { location: 'Spanien', timezone: 'CET (UTC+1)', languages: 'Spanisch · Englisch · Deutsch', response: '< 24h' },
     labels: { location: 'Standort', timezone: 'Zeitzone', languages: 'Sprachen', response: 'Antwortzeit' },
     downloadCv: 'Lebenslauf herunterladen',
     workWithMe: 'Mit mir arbeiten',
